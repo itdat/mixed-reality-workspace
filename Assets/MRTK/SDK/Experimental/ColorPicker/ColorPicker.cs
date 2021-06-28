@@ -99,7 +99,6 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.ColorPicker
         {
             GradientDragStartPosition = GradientDragger.transform.localPosition;
             GradientDragCurrentPosition = GradientDragStartPosition;
-            this.gameObject.SetActive(false);
         }
         private void Update()
         {
