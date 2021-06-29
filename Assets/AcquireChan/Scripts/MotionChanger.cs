@@ -85,7 +85,7 @@ public class MotionChanger : MonoBehaviour
 	 *	----------------------------------------------------------------------
 	 *	@brief	アニメーション次へ
 	*/
-	private void NextAnimation()
+	public void NextAnimation()
 	{
 		if( m_ChangingMotion ) return;
 
@@ -99,7 +99,7 @@ public class MotionChanger : MonoBehaviour
 	 *	----------------------------------------------------------------------
 	 *	@brief	アニメーション前へ
 	*/
-	private void PrevAnimation()
+	public void PrevAnimation()
 	{
 		if( m_ChangingMotion ) return;
 
@@ -109,11 +109,12 @@ public class MotionChanger : MonoBehaviour
 		m_ChangingMotion = true;
 	}
 
-
-
-
-
-
+	public void NextAndBackAnimation()
+	{
+		NextAnimation();
+		PrevAnimation();
+	}
+	
 	/*!
 	 *	----------------------------------------------------------------------
 	 *	@brief	ボタン表示
