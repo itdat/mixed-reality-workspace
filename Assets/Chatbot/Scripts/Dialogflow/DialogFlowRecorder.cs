@@ -14,6 +14,7 @@ namespace Dialogflow {
         public DialogFlowRecordEvent OnStopRecord = new DialogFlowRecordEvent();
 
         public override AudioClip StopRecord() {
+            Debug.Log("Stop record");
             Microphone.End(microphoneName);
             isRecording = false;
             //Trim the audioclip by the length of the recording
