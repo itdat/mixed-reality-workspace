@@ -120,5 +120,17 @@ namespace AcquireChan.Scripts {
             };
             return navMeshBuildSource;
         }
+
+        public void ToggleObservers(bool startObservations) {
+            var spatialAwarenessSystem = CoreServices.SpatialAwarenessSystem;
+            if (spatialAwarenessSystem != null) {
+                if (startObservations)
+                    spatialAwarenessSystem.ResumeObservers();
+                else {
+                    spatialAwarenessSystem.SuspendObservers();
+                    spatialAwarenessSystem.ClearObservations();
+                }
+            }
+        }
     }
 }
