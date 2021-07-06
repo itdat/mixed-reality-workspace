@@ -13,20 +13,22 @@ public class GlobalHandListener : MonoBehaviour,
     IMixedRealityHandJointHandler // handle joint position updates for hands
 {
     private GameObject brushTip;
-    private GameObject eraser;
+    private GameObject eraserTip;
     private GameObject pointer;
     private bool isInDrawMod;
     private bool isDrawing;
     private SimulatedArticulatedHand detectedHand;
     private Brush brush;
+    private Eraser eraser;
     private void OnEnable()
     {
         brushTip = GameObject.Find("BrushTip");
         if (brushTip) brushTip.SetActive(false);
-        eraser = GameObject.Find("Eraser");
-        if (eraser) eraser.SetActive(false);
+        eraserTip = GameObject.Find("Eraser");
+        if (eraserTip) eraserTip.SetActive(false);
 
         brush = GetComponent<Brush>();
+        eraser = GetComponent<Eraser>();
         CoreServices.InputSystem?.RegisterHandler<IMixedRealitySourceStateHandler>(this);
         CoreServices.InputSystem?.RegisterHandler<IMixedRealityHandJointHandler>(this);
     }
@@ -41,11 +43,20 @@ public class GlobalHandListener : MonoBehaviour,
     {
         if (detectedHand == null) return;
         pointer?.SetActive(isInDrawMod);
-        if (!isDrawing) return;
+        //if (!isDrawing) return;
         foreach (var inputMapping in detectedHand.Interactions)
         {
             if (inputMapping.Description != "Grab") continue;
-            brush.Draw = inputMapping.BoolData;
+
+            if (isDrawing)
+            {
+                brush.Draw = inputMapping.BoolData;
+            }
+            else
+            {
+                eraser.Draw = inputMapping.BoolData;
+            }
+            
             break;
         }
     }
@@ -82,12 +93,12 @@ public class GlobalHandListener : MonoBehaviour,
         if (detectedHand == null) return;
         if (!isInDrawMod) return;
         
-        pointer = isDrawing ? brushTip : eraser;
-        
-        if (eventData.InputData.TryGetValue(TrackedHandJoint.IndexTip, out var pose))
-        {
-            pointer.transform.position = pose.Position;
-            pointer.SetActive(true);
-        }
+        pointer = isDrawing ? brushTip : eraserTip;
+        brushTip.SetActive(isDrawing);
+        eraserTip.SetActive(!isDrawing);
+
+        if (!eventData.InputData.TryGetValue(TrackedHandJoint.IndexTip, out var pose)) return;
+        pointer.transform.position = pose.Position;
+        //pointer.SetActive(true);
     }
 }

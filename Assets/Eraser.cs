@@ -16,9 +16,9 @@ public class Eraser : Brush
     // Instead of drawing, the eraser will remove existing strokes
     protected override IEnumerator DrawOverTime()
     {
-        if (inputData.type != InputData.Type.ERASER) yield return null;
+        //if (inputData.type != InputData.Type.ERASER) yield return null;
         // Get all the brush strokes that currently exist
-        List<GameObject> brushStrokes = new List<GameObject>(GameObject.FindGameObjectsWithTag("BrushStroke"));
+        var brushStrokes = new List<GameObject>(GameObject.FindGameObjectsWithTag("BrushStroke"));
 
         while (mDraw)
         {
@@ -55,7 +55,6 @@ public class Eraser : Brush
                     }
                 }
             }
-
             yield return null;
         }
     }
