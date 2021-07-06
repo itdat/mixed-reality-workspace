@@ -47508,6 +47508,7 @@ GameObject:
   - component: {fileID: 1250259121}
   - component: {fileID: 1250259120}
   - component: {fileID: 1250259122}
+  - component: {fileID: 1250259123}
   m_Layer: 0
   m_Name: GlobalHandListener
   m_TagString: Untagged
@@ -47560,6 +47561,25 @@ MonoBehaviour:
   strokePrefab: {fileID: 5040074938040166099, guid: dedbff7bc14d59744a0d8543137aa612,
     type: 3}
   width: 3
+--- !u!114 &1250259123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250259119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e31037546dad7d489ef84dbd3595625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minPositionDelta: 0.01
+  maxTimeDelta: 0.25
+  strokePrefab: {fileID: 5040074938040166099, guid: dedbff7bc14d59744a0d8543137aa612,
+    type: 3}
+  width: 0
+  eraseRange: 0.1
+  eraseTime: 0.15
 --- !u!1 &1250411252
 GameObject:
   m_ObjectHideFlags: 0
