@@ -14,9 +14,10 @@ public class Brush : MonoBehaviour
     
     private void OnEnable()
     {
-        tip = GameObject.Find("BrushTip")?.transform;
-        brushRenderer = GameObject.Find("BrushTip")?.GetComponent<Renderer>();
-        inputData = GetComponent<InputData>();
+        var brushTip = GameObject.Find("BrushTip");
+        if (brushTip == null) return;
+        tip = brushTip.transform;
+        brushRenderer = brushTip.GetComponent<Renderer>();
     }
 
     public bool Draw
@@ -34,31 +35,7 @@ public class Brush : MonoBehaviour
             }
         }
     }
-
-    public Color StrokeColor
-    {
-        set
-        {
-            Color32 newColor = value;
-            Color32 oldColor = currentStrokeColor;
-
-            float delta = (float) (Mathf.Abs(oldColor.r - newColor.r)
-                                   + Mathf.Abs(oldColor.g - newColor.g)
-                                   + Mathf.Abs(oldColor.b - newColor.b)
-                                   + Mathf.Abs(oldColor.a - newColor.a)) / 4;
-
-            if (delta < minColorDelta)
-            {
-                return;
-            }
-
-            currentStrokeColor = newColor;
-        }
-    }
-
-    [Header("Drawing Settings")] [SerializeField]
-    private float minColorDelta = 0.01f;
-
+    
     [SerializeField] private float minPositionDelta = 0.01f;
     [SerializeField] private float maxTimeDelta = 0.25f;
 
@@ -77,7 +54,6 @@ public class Brush : MonoBehaviour
 
     protected virtual IEnumerator DrawOverTime()
     {
-        //if (inputData.type != InputData.Type.DRAW) yield return null;
         // Get the position of the tip
         Vector3 lastPointPosition = tip.position;
         // Then wait one frame and get the position again

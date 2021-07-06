@@ -12,18 +12,13 @@ public class GlobalHandListener : MonoBehaviour,
     IMixedRealitySourceStateHandler, // Handle source detected and lost
     IMixedRealityHandJointHandler // handle joint position updates for hands
 {
-    private float currentTime;
-    [SerializeField] private float deltaTime = 3.0f;
-
     private GameObject brushTip;
     private GameObject eraser;
     private GameObject pointer;
     private bool isInDrawMod;
     private bool isDrawing;
     private SimulatedArticulatedHand detectedHand;
-
     private Brush brush;
-    
     private void OnEnable()
     {
         brushTip = GameObject.Find("BrushTip");

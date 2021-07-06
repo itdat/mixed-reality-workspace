@@ -13473,7 +13473,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 0}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -27127,7 +27127,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 0}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -30202,7 +30202,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 0}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -46022,7 +46022,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 0}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -47545,9 +47545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4196f9599cb9ae04bb57ed6f3f8cc186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minColorDelta: 0.01
   minPositionDelta: 0.01
-  maxTimeDelta: 0.1
+  maxTimeDelta: 0.25
   strokePrefab: {fileID: 5040074938040166099, guid: dedbff7bc14d59744a0d8543137aa612,
     type: 3}
   width: 2
@@ -53565,7 +53564,7 @@ MonoBehaviour:
   OnValueUpdated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 0}
         m_MethodName: UpdateWidth
         m_Mode: 0
         m_Arguments:
@@ -64963,7 +64962,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 0}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -70227,7 +70226,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 0}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -72892,7 +72891,7 @@ PrefabInstance:
     - target: {fileID: 7877211698847656583, guid: 902f6f19f14c122439cc2bf5f35c245f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8774899600306814242, guid: 902f6f19f14c122439cc2bf5f35c245f,
         type: 3}
@@ -86531,6 +86530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 6953548270052523216, guid: ee6df187297f8e4448c2364c11e8fe55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6953548270052523228, guid: ee6df187297f8e4448c2364c11e8fe55,
         type: 3}
