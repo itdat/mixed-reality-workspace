@@ -13,6 +13,11 @@ public class GlobalHandListener : MonoBehaviour,
     IMixedRealityHandJointHandler // handle joint position updates for hands
 {
     private GameObject brushTip;
+
+    public SimulatedArticulatedHand DetectedHand => detectedHand;
+
+    public GameObject Pointer => pointer;
+
     private GameObject eraserTip;
     private GameObject pointer;
     private bool isInDrawMod;
