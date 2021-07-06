@@ -30,7 +30,7 @@ public class GlobalHandListener : MonoBehaviour,
         CoreServices.InputSystem?.RegisterHandler<IMixedRealitySourceStateHandler>(this);
         CoreServices.InputSystem?.RegisterHandler<IMixedRealityHandJointHandler>(this);
     }
-
+    
     private void OnDisable()
     {
         CoreServices.InputSystem?.UnregisterHandler<IMixedRealitySourceStateHandler>(this);
