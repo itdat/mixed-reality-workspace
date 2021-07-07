@@ -67,7 +67,7 @@ namespace AcquireChan.Scripts {
         public void MoveToPoint(MixedRealityPointerEventData eventData) {
             if (isAutoMove) return;
             var sourceName = eventData.InputSource.SourceName;
-            if (!sourceName.Contains("Hand")) return;
+            if (!sourceName.Contains("Right")) return;
             var result = eventData.Pointer.Result;
             m_Agent.SetDestination(result.Details.Point);
             if (PrefabToSpawn != null) {

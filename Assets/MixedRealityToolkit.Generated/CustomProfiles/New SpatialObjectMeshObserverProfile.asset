@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3c1af9621e40064b907d18085e21fb7, type: 3}
-  m_Name: MRTK_SpatialObjectMeshObserverProfile
+  m_Name: New SpatialObjectMeshObserverProfile
   m_EditorClassIdentifier: 
   isCustomProfile: 1
   startupBehavior: 0

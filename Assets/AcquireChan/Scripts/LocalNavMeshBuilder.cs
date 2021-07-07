@@ -45,12 +45,14 @@ namespace AcquireChan.Scripts {
             if (isRegistered || CoreServices.SpatialAwarenessSystem == null) return;
             CoreServices.SpatialAwarenessSystem.RegisterHandler<SpatialAwarenessHandler>(handler);
             isRegistered = true;
+            Debug.Log("RegisterEventHandlers: ");
         }
 
         private void UnregisterEventHandlers(IEventSystemHandler handler) {
-            if (isRegistered || CoreServices.SpatialAwarenessSystem == null) return;
-            CoreServices.SpatialAwarenessSystem.RegisterHandler<SpatialAwarenessHandler>(handler);
-            isRegistered = true;
+            if (!isRegistered || CoreServices.SpatialAwarenessSystem == null) return;
+            CoreServices.SpatialAwarenessSystem.UnregisterHandler<SpatialAwarenessHandler>(handler);
+            isRegistered = false;
+            Debug.Log("UnregisterEventHandlers: ");
         }
 
         #endregion
@@ -66,6 +68,7 @@ namespace AcquireChan.Scripts {
 
         private void UpdateNavMesh(bool asyncUpdate = false) {
             var m_Sources = sources.Values.ToList();
+            Debug.Log("Size: " + m_Sources.Count);
             var defaultBuildSettings = NavMesh.GetSettingsByID(0);
             var bounds = QuantizedBounds();
 
@@ -120,17 +123,6 @@ namespace AcquireChan.Scripts {
             };
             return navMeshBuildSource;
         }
-
-        public void ToggleObservers(bool startObservations) {
-            var spatialAwarenessSystem = CoreServices.SpatialAwarenessSystem;
-            if (spatialAwarenessSystem != null) {
-                if (startObservations)
-                    spatialAwarenessSystem.ResumeObservers();
-                else {
-                    spatialAwarenessSystem.SuspendObservers();
-                    spatialAwarenessSystem.ClearObservations();
-                }
-            }
-        }
+        
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964128, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3044,7 +3044,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 76651879}
+      - m_Target: {fileID: 6172592899887433689}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -3055,7 +3055,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 210981348}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleObservers
         m_Mode: 6
         m_Arguments:
@@ -7713,7 +7713,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 210981347}
-  - component: {fileID: 210981348}
   - component: {fileID: 210981349}
   - component: {fileID: 210981350}
   m_Layer: 0
@@ -7737,20 +7736,6 @@ Transform:
   m_Father: {fileID: 1318981}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &210981348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210981346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8f0a6ccd4f715d49b63daca333ced0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Tracked: {fileID: 0}
-  m_Size: {x: 80, y: 20, z: 80}
 --- !u!114 &210981349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10211,6 +10196,51 @@ Transform:
   m_Father: {fileID: 1318981}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &301028499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 301028501}
+  - component: {fileID: 301028500}
+  m_Layer: 0
+  m_Name: LocalNavMeshBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &301028500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301028499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f0a6ccd4f715d49b63daca333ced0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Tracked: {fileID: 0}
+  m_Size: {x: 80, y: 20, z: 80}
+--- !u!4 &301028501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301028499}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &301111272
 GameObject:
   m_ObjectHideFlags: 0
@@ -12293,7 +12323,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 210981348}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleObservers
         m_Mode: 6
         m_Arguments:
@@ -36953,8 +36983,8 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194231}
   - component: {fileID: 963194230}
-  - component: {fileID: 963194229}
   - component: {fileID: 963194232}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -41076,7 +41106,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 210981348}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleObservers
         m_Mode: 6
         m_Arguments:
@@ -47518,7 +47548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1250259120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47545,7 +47575,7 @@ Transform:
   - {fileID: 1524770153}
   - {fileID: 1192916238}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1250259122
 MonoBehaviour:
@@ -49402,7 +49432,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 210981348}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleObservers
         m_Mode: 6
         m_Arguments:
@@ -56639,7 +56669,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 210981348}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleObservers
         m_Mode: 6
         m_Arguments:
@@ -74380,7 +74410,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 210981348}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleObservers
         m_Mode: 6
         m_Arguments:
@@ -86068,7 +86098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6172592899887433690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86082,7 +86112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Range: 10
-  m_Agent: {fileID: 0}
+  m_Agent: {fileID: 3613195075000398454}
   timeRelax: 0.5
   isMove: 0
   isAutoMove: 1
@@ -86595,7 +86625,7 @@ PrefabInstance:
     - target: {fileID: 6953548270052523216, guid: ee6df187297f8e4448c2364c11e8fe55,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6953548270052523228, guid: ee6df187297f8e4448c2364c11e8fe55,
         type: 3}
