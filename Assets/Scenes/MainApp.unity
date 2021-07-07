@@ -8590,7 +8590,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1250259120}
+      - m_Target: {fileID: 0}
         m_MethodName: set_IsInDrawMod
         m_Mode: 6
         m_Arguments:
@@ -12323,8 +12323,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ToggleObservers
+      - m_Target: {fileID: 470863330}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12334,8 +12334,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1250259120}
-        m_MethodName: set_IsInDrawMod
+      - m_Target: {fileID: 1421317874}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12345,7 +12345,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1250259120}
+      - m_Target: {fileID: 0}
         m_MethodName: set_IsDrawing
         m_Mode: 6
         m_Arguments:
@@ -13503,7 +13503,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 1524770158}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -16691,7 +16691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &470863331
 Transform:
   m_ObjectHideFlags: 0
@@ -16703,6 +16703,7 @@ Transform:
   m_LocalPosition: {x: -0.0216, y: 0.226, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1524770153}
   - {fileID: 1394662894}
   - {fileID: 983367644}
   - {fileID: 2110721047}
@@ -17304,7 +17305,7 @@ Transform:
   - {fileID: 324337192}
   - {fileID: 634012813}
   m_Father: {fileID: 1421317875}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &489448688
 GameObject:
@@ -23102,7 +23103,7 @@ Transform:
   - {fileID: 424633477}
   - {fileID: 1358145396}
   m_Father: {fileID: 1421317875}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624538183
 GameObject:
@@ -27146,7 +27147,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 1524770158}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -30221,7 +30222,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 1524770158}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -37675,7 +37676,7 @@ Transform:
   - {fileID: 394466753}
   - {fileID: 1852792485}
   m_Father: {fileID: 470863331}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &984429400
 GameObject:
@@ -41107,7 +41108,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_MethodName: ToggleObservers
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -41117,7 +41118,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1250259120}
+      - m_Target: {fileID: 0}
         m_MethodName: set_IsInDrawMod
         m_Mode: 6
         m_Arguments:
@@ -41128,7 +41129,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1250259120}
+      - m_Target: {fileID: 0}
         m_MethodName: set_IsDrawing
         m_Mode: 6
         m_Arguments:
@@ -41575,7 +41576,7 @@ Transform:
   - {fileID: 2121768269}
   - {fileID: 918807707}
   m_Father: {fileID: 1421317875}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1120567932
 MonoBehaviour:
@@ -44654,6 +44655,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1192916238}
+  - component: {fileID: 1192916239}
+  - component: {fileID: 1192916240}
   m_Layer: 0
   m_Name: Eraser
   m_TagString: Untagged
@@ -44668,15 +44671,51 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192916237}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0043999776, y: -0.07033333, z: -0.45833343}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_Children:
   - {fileID: 1911876977}
   - {fileID: 1676095217}
-  m_Father: {fileID: 1250259121}
-  m_RootOrder: 1
+  m_Father: {fileID: 1421317875}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192916239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192916237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13425325d06e48345a7dbdba5b4f3d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceType: 1
+  handedness: 2
+  renderers:
+  - {fileID: 1911876979}
+  - {fileID: 1676095219}
+--- !u!114 &1192916240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192916237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e31037546dad7d489ef84dbd3595625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minPositionDelta: 0.01
+  maxTimeDelta: 0.25
+  strokePrefab: {fileID: 5040074938040166099, guid: dedbff7bc14d59744a0d8543137aa612,
+    type: 3}
+  width: 0
+  eraseRange: 0.1
+  eraseTime: 0.15
 --- !u!1 &1197395102
 GameObject:
   m_ObjectHideFlags: 0
@@ -46066,7 +46105,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 1524770158}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -47539,28 +47578,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1250259121}
-  - component: {fileID: 1250259120}
   - component: {fileID: 1250259122}
-  - component: {fileID: 1250259123}
   m_Layer: 0
-  m_Name: GlobalHandListener
+  m_Name: InputData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1250259120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250259119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f74cb40240be7e418b47a7df36ce791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_IsActive: 1
 --- !u!4 &1250259121
 Transform:
   m_ObjectHideFlags: 0
@@ -47568,12 +47593,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250259119}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1524770153}
-  - {fileID: 1192916238}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47586,33 +47609,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1250259119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4196f9599cb9ae04bb57ed6f3f8cc186, type: 3}
+  m_Script: {fileID: 11500000, guid: 70e48613f4133fa4aaa8b9b6afe48707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPositionDelta: 0.01
-  maxTimeDelta: 0.25
-  strokePrefab: {fileID: 5040074938040166099, guid: dedbff7bc14d59744a0d8543137aa612,
-    type: 3}
-  width: 3
---- !u!114 &1250259123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250259119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e31037546dad7d489ef84dbd3595625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minPositionDelta: 0.01
-  maxTimeDelta: 0.25
-  strokePrefab: {fileID: 5040074938040166099, guid: dedbff7bc14d59744a0d8543137aa612,
-    type: 3}
-  width: 0
-  eraseRange: 0.1
-  eraseTime: 0.15
+  grabEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1192916240}
+        m_MethodName: set_Draw
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1524770158}
+        m_MethodName: set_Draw
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1250411252
 GameObject:
   m_ObjectHideFlags: 0
@@ -49443,7 +49467,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1250259120}
+      - m_Target: {fileID: 0}
         m_MethodName: set_IsInDrawMod
         m_Mode: 6
         m_Arguments:
@@ -53570,7 +53594,7 @@ Transform:
   - {fileID: 1383495396}
   - {fileID: 1207990406}
   m_Father: {fileID: 470863331}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1394662895
 MonoBehaviour:
@@ -53616,7 +53640,7 @@ MonoBehaviour:
   OnValueUpdated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 1524770158}
         m_MethodName: UpdateWidth
         m_Mode: 0
         m_Arguments:
@@ -54355,6 +54379,7 @@ Transform:
   m_LocalPosition: {x: -0.0216, y: 0.226, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1192916238}
   - {fileID: 1120567931}
   - {fileID: 623139963}
   - {fileID: 474783405}
@@ -56669,19 +56694,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ToggleObservers
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1250259120}
-        m_MethodName: set_IsInDrawMod
+      - m_Target: {fileID: 470863330}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -56691,7 +56705,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1250259120}
+      - m_Target: {fileID: 1421317874}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
         m_MethodName: set_IsDrawing
         m_Mode: 6
         m_Arguments:
@@ -58585,6 +58610,8 @@ GameObject:
   - component: {fileID: 1524770156}
   - component: {fileID: 1524770155}
   - component: {fileID: 1524770154}
+  - component: {fileID: 1524770157}
+  - component: {fileID: 1524770158}
   m_Layer: 0
   m_Name: BrushTip
   m_TagString: Untagged
@@ -58599,11 +58626,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524770152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalScale: {x: 0.013333334, y: 0.013333334, z: 0.013333334}
   m_Children: []
-  m_Father: {fileID: 1250259121}
+  m_Father: {fileID: 470863331}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1524770154
@@ -58626,7 +58653,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524770152}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -58666,6 +58693,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524770152}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1524770157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524770152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13425325d06e48345a7dbdba5b4f3d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceType: 1
+  handedness: 2
+  renderers:
+  - {fileID: 1524770155}
+--- !u!114 &1524770158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524770152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4196f9599cb9ae04bb57ed6f3f8cc186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minPositionDelta: 0.01
+  maxTimeDelta: 0.25
+  strokePrefab: {fileID: 5040074938040166099, guid: dedbff7bc14d59744a0d8543137aa612,
+    type: 3}
+  width: 3
 --- !u!1 &1525450002
 GameObject:
   m_ObjectHideFlags: 0
@@ -65014,7 +65074,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 1524770158}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -69548,7 +69608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1848490944
 Transform:
   m_ObjectHideFlags: 0
@@ -70268,7 +70328,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1250259122}
+      - m_Target: {fileID: 1524770158}
         m_MethodName: set_StrokePrefab
         m_Mode: 2
         m_Arguments:
@@ -72491,7 +72551,7 @@ Transform:
   m_LocalScale: {x: 0.27335998, y: 0.14520839, z: 0.0106}
   m_Children: []
   m_Father: {fileID: 1421317875}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1918323855
 MonoBehaviour:
@@ -74421,7 +74481,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1250259120}
+      - m_Target: {fileID: 0}
         m_MethodName: set_IsInDrawMod
         m_Mode: 6
         m_Arguments:
@@ -78417,7 +78477,7 @@ Transform:
   m_LocalScale: {x: 0.27335998, y: 0.30415997, z: 0.0106}
   m_Children: []
   m_Father: {fileID: 470863331}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2110721048
 MonoBehaviour:

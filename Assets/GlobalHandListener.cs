@@ -14,92 +14,85 @@ public class GlobalHandListener : MonoBehaviour,
 {
     private GameObject brushTip;
 
-    public SimulatedArticulatedHand DetectedHand => detectedHand;
-
     public GameObject Pointer => pointer;
 
     private GameObject eraserTip;
     private GameObject pointer;
     private bool isInDrawMod;
     private bool isDrawing;
-    private SimulatedArticulatedHand detectedHand;
+    private IMixedRealityController detectedHand;
     private Brush brush;
     private Eraser eraser;
-    private void OnEnable()
-    {
+
+    private void OnEnable() {
         brushTip = GameObject.Find("BrushTip");
         if (brushTip) brushTip.SetActive(false);
         eraserTip = GameObject.Find("Eraser");
         if (eraserTip) eraserTip.SetActive(false);
-
+        pointer = brushTip;
         brush = GetComponent<Brush>();
         eraser = GetComponent<Eraser>();
         CoreServices.InputSystem?.RegisterHandler<IMixedRealitySourceStateHandler>(this);
         CoreServices.InputSystem?.RegisterHandler<IMixedRealityHandJointHandler>(this);
     }
-    
-    private void OnDisable()
-    {
+
+    private void OnDisable() {
         CoreServices.InputSystem?.UnregisterHandler<IMixedRealitySourceStateHandler>(this);
         CoreServices.InputSystem?.UnregisterHandler<IMixedRealityHandJointHandler>(this);
     }
 
-    void Update()
-    {
+    void Update() {
         if (detectedHand == null) return;
-        pointer?.SetActive(isInDrawMod);
+        pointer.SetActive(true);
         //if (!isDrawing) return;
-        foreach (var inputMapping in detectedHand.Interactions)
-        {
+        foreach (var inputMapping in detectedHand.Interactions) {
             if (inputMapping.Description != "Grab") continue;
 
-            if (isDrawing)
-            {
+            if (isDrawing) {
                 brush.Draw = inputMapping.BoolData;
             }
-            else
-            {
+            else {
                 eraser.Draw = inputMapping.BoolData;
             }
-            
+
             break;
         }
     }
 
-    public bool IsInDrawMod
-    {
+    public bool IsInDrawMod {
         get => isInDrawMod;
         set => isInDrawMod = value;
     }
 
-    public bool IsDrawing
-    {
+    public bool IsDrawing {
         get => isDrawing;
         set => isDrawing = value;
     }
 
     // IMixedRealitySourceStateHandler interface
-    public void OnSourceDetected(SourceStateEventData eventData)
-    {
-        if (!(eventData.Controller is SimulatedArticulatedHand hand)) return;
-        detectedHand = hand;
+    public void OnSourceDetected(SourceStateEventData eventData) {
+        if (eventData.Controller.InputSource.SourceType != InputSourceType.Hand) return;
+        detectedHand = eventData.Controller;
+        pointer.SetActive(true);
+        Debug.Log("OnSourceDetected");
     }
 
-    public void OnSourceLost(SourceStateEventData eventData)
-    {
-        if (!(eventData.Controller is SimulatedArticulatedHand hand)) return;
+    public void OnSourceLost(SourceStateEventData eventData) {
+        // if (!(eventData.Controller is SimulatedArticulatedHand hand)) return;
+        if (eventData.Controller.InputSource.SourceType != InputSourceType.Hand) return;
         detectedHand = null;
-        pointer?.SetActive(false);
+        pointer.SetActive(false);
+        Debug.Log("OnSourceLost");
     }
 
     public void OnHandJointsUpdated(
-                InputEventData<IDictionary<TrackedHandJoint, MixedRealityPose>> eventData)
-    {
+        InputEventData<IDictionary<TrackedHandJoint, MixedRealityPose>> eventData) {
         if (detectedHand == null) return;
         if (!isInDrawMod) return;
-        
+        Debug.Log("OnHandJointsUpdated");
+
         pointer = isDrawing ? brushTip : eraserTip;
-        brushTip.SetActive(isDrawing);
+        brushTip.SetActive(true);
         eraserTip.SetActive(!isDrawing);
 
         if (!eventData.InputData.TryGetValue(TrackedHandJoint.IndexTip, out var pose)) return;
