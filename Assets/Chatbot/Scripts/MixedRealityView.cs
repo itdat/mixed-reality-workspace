@@ -50,6 +50,7 @@ public class MixedRealityView : MonoBehaviour {
             meshRenderer.material.mainTexture = texture;
             image.SetActive(true);
         }
+
     }
 
     private void PlayVideo(string url) {

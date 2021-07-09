@@ -68,7 +68,6 @@ namespace AcquireChan.Scripts {
 
         private void UpdateNavMesh(bool asyncUpdate = false) {
             var m_Sources = sources.Values.ToList();
-            Debug.Log("Size: " + m_Sources.Count);
             var defaultBuildSettings = NavMesh.GetSettingsByID(0);
             var bounds = QuantizedBounds();
 
