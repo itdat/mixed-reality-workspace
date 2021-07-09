@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +11,9 @@ public class Eraser : Brush {
 
     private bool erasingStrokes = false;
     private Queue<LineRenderer> erasedStrokes = new Queue<LineRenderer>();
+
+    private Stack<GameObject> undo = new Stack<GameObject>();
+    private Stack<GameObject> redo = new Stack<GameObject>();
 
     // Instead of drawing, the eraser will remove existing strokes
     protected override IEnumerator DrawOverTime() {
@@ -53,6 +55,7 @@ public class Eraser : Brush {
     }
 
     private IEnumerator EraseStrokesOverTime() {
+        Debug.Log("erasedStrokes.Count: " + erasedStrokes.Count);
         while (erasedStrokes.Count > 0) {
             var lineRenderer = erasedStrokes.Dequeue();
             var startTime = Time.unscaledTime;

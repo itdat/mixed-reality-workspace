@@ -1,14 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
 
 public class Brush : MonoBehaviour {
+    private Renderer renderer;
+
+    private void OnEnable() {
+        renderer = GetComponent<MeshRenderer>();
+    }
+
+
     public bool Draw {
         set {
             if (mDraw == value) return;
             mDraw = value;
             if (!mDraw) return;
-            currentStrokeColor = Color.cyan;
+            if (!isActiveAndEnabled) return;
+            currentStrokeColor = renderer.material.color;
             StartCoroutine(DrawOverTime());
         }
     }
