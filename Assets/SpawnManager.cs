@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
     public void SpawnStuff(int id)
     {
         if (id < 0 || id > listPrefabs.Length) return;
-        var go = Instantiate(listPrefabs[id], gameObject.transform.position, Quaternion.identity);
+        var go = Instantiate(listPrefabs[id], gameObject.transform.position + Vector3.forward * 0.5f, Quaternion.identity);
         go.tag = "Stuff"; 
     }
 }
