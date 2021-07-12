@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Windows.WebCam;
+using Utils;
 
 namespace Photon {
     public class PhotoCaptureHandler : MonoBehaviourPunCallbacks {
@@ -11,6 +14,7 @@ namespace Photon {
         private bool isTaking;
         public AudioClip soundEffect;
         private AudioSource audioSource;
+        public bool isCaptureScreen;
 
         public void TakePictureWithCountDown() {
             if (isTaking) return;
@@ -59,10 +63,31 @@ namespace Photon {
             PhotoCaptureFrame photoCaptureFrame) {
             // Copy the raw image data into the target texture
             photoCaptureFrame.UploadImageDataToTexture(targetTexture);
+            if (isCaptureScreen) {
+                var screenshot = ScreenCapture.CaptureScreenshotAsTexture();
+                var size = ExpectSize(screenshot, targetTexture);
+                var width = size.Key;
+                var height = size.Value;
+                if (width != screenshot.width || height != screenshot.height)
+                    screenshot = ImageHelpers.ResampleAndCrop(screenshot, width, height);
+
+                if (width != targetTexture.width || height != targetTexture.height)
+                    targetTexture = ImageHelpers.ResampleAndCrop(targetTexture, width, height);
+
+                targetTexture = ImageHelpers.AlphaBlend(targetTexture, screenshot);
+            }
+
             photonView.RPC("ShowImage", RpcTarget.Others, targetTexture.EncodeToJPG(), targetTexture.width,
                 targetTexture.height);
             photoCaptureObject.StopPhotoModeAsync(OnStoppedPhotoMode);
             isTaking = false;
+        }
+
+        private static KeyValuePair<int, int> ExpectSize(Texture texture1, Texture texture2) {
+            var width = Math.Min(texture1.width, texture2.width);
+            var height = Math.Min(texture1.height, texture2.height);
+            var res = new KeyValuePair<int, int>(width, height);
+            return res;
         }
 
         private void OnStoppedPhotoMode(PhotoCapture.PhotoCaptureResult result) {

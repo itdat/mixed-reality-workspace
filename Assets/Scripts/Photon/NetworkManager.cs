@@ -58,6 +58,7 @@ namespace Photon {
                     Quaternion.identity);
                 model.GetComponent<AgentController>().enabled = true;
                 model.GetComponent<MoveFollowCamera>().enabled = true;
+                buttonTakePhoto.SetActive(true);
             }
             else {
                 var go = Resources.Load<GameObject>("Audio\\Speaker");
