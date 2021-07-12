@@ -9,6 +9,8 @@ namespace Photon {
         PhotoCapture photoCaptureObject;
         private Texture2D targetTexture;
         private bool isTaking;
+        public AudioClip soundEffect;
+        private AudioSource audioSource;
 
         public void TakePictureWithCountDown() {
             if (isTaking) return;
@@ -46,6 +48,11 @@ namespace Photon {
                     photoCaptureObject.TakePhotoAsync(OnCapturedPhotoToMemory);
                 });
             });
+
+            if (soundEffect == null) yield break;
+            if (audioSource == null)
+                audioSource = FindObjectOfType<AudioSource>();
+            audioSource.PlayOneShot(soundEffect);
         }
 
         private void OnCapturedPhotoToMemory(PhotoCapture.PhotoCaptureResult result,
