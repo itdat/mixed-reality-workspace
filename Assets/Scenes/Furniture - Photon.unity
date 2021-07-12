@@ -10682,7 +10682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameVersion: 1
-  isAdmin: 1
+  isAdmin: 0
   buttonTakePhoto: {fileID: 8644208617963252981}
 --- !u!4 &690649258
 Transform:
@@ -10848,6 +10848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 8300000, guid: 6fadf22cbcce5884a993e656674f4459, type: 3}
+  isCaptureScreen: 1
 --- !u!1 &691590941
 GameObject:
   m_ObjectHideFlags: 0
@@ -18575,6 +18576,7 @@ MonoBehaviour:
   - {fileID: 1635246437362008036, guid: a2843324b559e8e4f83c30d086c11b87, type: 3}
   - {fileID: 8836889144249913210, guid: 9829b98ac6b5e2f43ba4546230ff79a1, type: 3}
   - {fileID: 2781067587758057232, guid: 75bcc5b22d96bfd4ebc68a84d257c162, type: 3}
+  isInRoom: 1
 --- !u!1 &1269068722
 GameObject:
   m_ObjectHideFlags: 0
@@ -34655,7 +34657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &8746576036246856704
 MeshRenderer:
   m_ObjectHideFlags: 0
