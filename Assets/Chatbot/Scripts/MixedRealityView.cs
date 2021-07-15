@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using Dialogflow;
+using Google.Protobuf.WellKnownTypes;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 using UnityEngine.Video;
 
 public class MixedRealityView : MonoBehaviour {
@@ -12,30 +16,52 @@ public class MixedRealityView : MonoBehaviour {
     private DialogFlowClient _client;
     private GameObject image;
     private GameObject video;
+    public KeyCode keyCode;
+
+    [FormerlySerializedAs("isUseKeyDown")]
+    public bool useKeyDown;
 
     private void OnEnable() {
         _audioPlay = GetComponent<AudioSource>();
         _client = GetComponent<DialogFlowClient>();
 
-        _client.onAudioResponse.AddListener(result => {
-            _audioPlay.clip = result;
-            _audioPlay.Play();
-        });
+        _client.onAudioResponse.AddListener(PlayAudio);
 
-        _client.registerOnParameters("imageUrl", value => {
-            var url = value.StringValue;
-            Debug.Log(url);
-            StartCoroutine(GetTexture(url));
-        });
+        _client.registerOnParameters("imageUrl", LoadImage);
         _client.registerOnParameters("videoUrl", value => { PlayVideo(value.StringValue); });
         _client.onDetectIntentResponse.AddListener(response => {
-            if (response != null) return;
-            var audioClip = Resources.Load<AudioClip>(audioErr);
-            _audioPlay.clip = audioClip;
-            _audioPlay.Play();
+            if (response == null) {
+                var audioClip = Resources.Load<AudioClip>(audioErr);
+                _audioPlay.clip = audioClip;
+                _audioPlay.Play();
+                return;
+            }
+
+            if (response.QueryResult.Action == "show_table") {
+                ShowTables();
+            }
         });
     }
-    
+
+    private static void ShowTables() {
+        var go = Resources.Load<GameObject>("Tables\\Tables");
+        var mainCam = Camera.main.transform;
+        var rotation = mainCam.rotation;
+        var position = mainCam.position + rotation * Vector3.forward * 3;
+        Instantiate(go, position, Quaternion.identity);
+    }
+
+    private void LoadImage(Value value) {
+        var url = value.StringValue;
+        Debug.Log(url);
+        StartCoroutine(GetTexture(url));
+    }
+
+    private void PlayAudio(AudioClip result) {
+        _audioPlay.clip = result;
+        _audioPlay.Play();
+    }
+
     private IEnumerator GetTexture(string url) {
         image = Instantiate(Resources.Load<GameObject>(imageResponsePrefab));
         image.SetActive(false);
@@ -50,7 +76,6 @@ public class MixedRealityView : MonoBehaviour {
             meshRenderer.material.mainTexture = texture;
             image.SetActive(true);
         }
-
     }
 
     private void PlayVideo(string url) {
@@ -67,5 +92,12 @@ public class MixedRealityView : MonoBehaviour {
 
         _audioPlay.Stop();
         _client.OnButtonRecord();
+    }
+
+    private void Update() {
+        if (!useKeyDown) return;
+        if (Input.GetKeyDown(keyCode)) {
+            OnButtonRecord();
+        }
     }
 }

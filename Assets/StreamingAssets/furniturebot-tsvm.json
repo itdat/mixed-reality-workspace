@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "furniturebot-tsvm",
+  "private_key_id": "4a4970f309643ee0ad1bdef27253d4b360436020",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCWOsP8mbfhjixA\nfYvtSUaMLqoEHIEc6cRySeqjMG/jLC015xPCuakmaCwHvwvKPV6YEUTar1vhTBb7\nmOfKft4REgI/gnPB0FIw+bcwBm10X3b0IAum3wujU+ki12Vf50NL7Sh/2KcHYZk5\nmE8Vg4uH0iglITFvNiS72dpdQcPjedpWqnlJUbvzHwk9Bou1o/PCTzhXaPvEbgXv\nNde5TWSAmYumuEohwop6Kt36XwP6AGcnZ60T87bqN6ZVQoyD0LredLZh1jbXeIcb\n63v2vojrhL15renph1OlgS9pIlVD6mQNb5psUr3Ki1AJJTr83/BRhNFdZp1uQ3r4\nwd+VMa33AgMBAAECggEAOfjPbIi9JrNAbFqGRrkCGlJflVqSkF+9SQUxIGwuoRGJ\nGMXlID2ZApMseojEufRYroHreiA1aol8TPbCa6ftddTnPS7QELidHv0eLdAtKL02\nIBrFpE1qJkrZKnLIUeviUkhgWoV2XyjQgiM+UWUD0RPOHhXjB7FzF3KIC3i3aO4j\nHR2J7jMfLN4moKcovPmIuqXupKt/fkICa7GhzkvzpU63BxM1Aj62nhXrhnx970Ls\nTsdlkX3C6m3RrdAP7gJKhVDwiGcYORtbDKXXSCjVaBl2oNTnhHNT5Nec01iWg81y\nFx+1++mLYLkR65mpetXFMuVZCcUYtb4iOxQ3Y9sG8QKBgQDRkH0Gq65BnwynKJga\ntEALQG79mKQv30imFkSKtmGnadA28ev3JjyQY+41PzhDlkkI83HE2gWjxHPnwH0x\n2hYQ2Czyqc7omi7Sa15Z82W96xrbiyMspbNhgb+sffuVD9FX/Ofu/dy4IasgGtRY\nsj/B0Lj58eEN1K4d5w2TozHycwKBgQC3hIQQ73/VG5g6nSYsIUs7fYlnuU0V0AkL\naGtiWbwKp9wN5AxHGqnIJ3r6RkFzW/Ql9waQvOxE08OpkgUrY8zWxTKW8XfC2Xab\npXfbHVH5iSkr8fKnd6rN4P4MO1QACFQFuNmmvQmJFqkiVvJ4SGgFcG7BQq+VxCaF\nhuYir1kBbQKBgCvJ4zYHnYu8riong1DhJRi0x/xZbsVKBKYftQa/ATy4EXfJqSKl\nbLZHCzk5Eoqc1nn2VGlrnQ4ROJ7OS9qk1UODyDCUZtWXkf0JzldBUpsSizQgqKLl\npMvVDrX+RRlqirW19MitZvdaoaU9te0qocPf1yby8bGwJQm+g8m7qe4dAoGBAJF6\nwnrucWcN/gqRI36eUhZx+Sg5tAsTpOffOil4O2IzGXYFj1oan/cknQ+j/CSoA47J\nGfJJYf9Z5GUbdW+lKPAk2WrhNvBHFghjDvWrc52ehv3oSlVJvySANMSbj4aLE5iJ\npjjQ6Ks9RI0NYh/KPnP5YkNgSvMt0N/PRca/PI6tAoGATdcEHj3Hxfhugupund6J\noVBOqLW5tFL5G5npDcZ60zMT/82H5f7QxEzOraFiPpk35Q6b2VFo6RjGhzAP7F1s\nOIYMRybJZZtF2141RCxrrZZvlbya/pZBQQh7LVTIvcoVnt0X86niMXRM6u7R2FuR\nKcZJ9o7NurEjWWNR4a+Rhic=\n-----END PRIVATE KEY-----\n",
+  "client_email": "admin-250@furniturebot-tsvm.iam.gserviceaccount.com",
+  "client_id": "111357290615979741296",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/admin-250%40furniturebot-tsvm.iam.gserviceaccount.com"
+}
