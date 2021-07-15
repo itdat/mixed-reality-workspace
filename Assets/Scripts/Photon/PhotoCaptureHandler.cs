@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.MixedReality.Toolkit;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Windows.WebCam;
@@ -59,6 +60,8 @@ namespace Photon {
             audioSource.PlayOneShot(soundEffect);
         }
 
+        public GameObject prefab;
+
         private void OnCapturedPhotoToMemory(PhotoCapture.PhotoCaptureResult result,
             PhotoCaptureFrame photoCaptureFrame) {
             // Copy the raw image data into the target texture
@@ -80,6 +83,7 @@ namespace Photon {
             photonView.RPC("ShowImage", RpcTarget.Others, targetTexture.EncodeToJPG(), targetTexture.width,
                 targetTexture.height);
             photoCaptureObject.StopPhotoModeAsync(OnStoppedPhotoMode);
+            Instantiate(prefab, CoreServices.InputSystem.EyeGazeProvider.HitPosition, Quaternion.identity);
             isTaking = false;
         }
 

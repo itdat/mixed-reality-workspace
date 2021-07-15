@@ -17,16 +17,17 @@ namespace AcquireChan.Scripts {
 
         private void Update() {
             var pos = mainCam.position;
+            if (!agentController.isMove) {
+                transform.LookAt(mainCam.position, -Vector3.up);
+                transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+            }
+
             if (Vector3.Distance(lasPosition, pos) < 1f) return;
             lasPosition = pos;
             pos.x += dx;
             pos.y += dy;
             pos.z += dz;
             agentController.MoveToPoint(pos);
-            if (!agentController.isMove) {
-                var rotation = mainCam.rotation;
-                transform.rotation = new Quaternion(0.0f, rotation.y, 0.0f, rotation.w);
-            }
         }
     }
 }

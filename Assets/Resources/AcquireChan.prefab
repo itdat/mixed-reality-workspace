@@ -1728,6 +1728,7 @@ GameObject:
   - component: {fileID: 517031627002383685}
   - component: {fileID: 5186048900610241769}
   - component: {fileID: -4453418474587990642}
+  - component: {fileID: -810142789309191678}
   m_Layer: 0
   m_Name: AcquireChan
   m_TagString: Untagged
@@ -1851,6 +1852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426f46ead7154072b3c935e006c88971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dx: 2.5
+  dy: 0
+  dz: 1
 --- !u!114 &6381162346732710703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1934,6 +1938,43 @@ MonoBehaviour:
   AutoCreateRecorderIfNotFound: 0
   UsePrimaryRecorder: 1
   SetupDebugSpeaker: 1
+--- !u!114 &-810142789309191678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2877255342786803574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e736ec19b1c5543a9bb27c150f94fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFocusRequired: 0
+  MarkEventsAsUsed: 0
+  OnPointerDown:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPointerClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2877255342786803568}
+        m_MethodName: MoveToPoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPointerDragged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2877255343066804087
 GameObject:
   m_ObjectHideFlags: 0

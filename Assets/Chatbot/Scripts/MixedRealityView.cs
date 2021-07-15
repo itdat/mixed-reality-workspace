@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
+using AcquireChan.Scripts;
 using Dialogflow;
 using Google.Protobuf.WellKnownTypes;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 using UnityEngine.Video;
 
 public class MixedRealityView : MonoBehaviour {
@@ -17,6 +16,7 @@ public class MixedRealityView : MonoBehaviour {
     private GameObject image;
     private GameObject video;
     public KeyCode keyCode;
+    public CharacterAnimator animator;
 
     [FormerlySerializedAs("isUseKeyDown")]
     public bool useKeyDown;
@@ -34,11 +34,20 @@ public class MixedRealityView : MonoBehaviour {
                 var audioClip = Resources.Load<AudioClip>(audioErr);
                 _audioPlay.clip = audioClip;
                 _audioPlay.Play();
+
                 return;
             }
 
-            if (response.QueryResult.Action == "show_table") {
-                ShowTables();
+            switch (response.QueryResult.Action) {
+                case "show_table":
+                    ShowTables();
+                    break;
+                case "input.welcome":
+                    StartCoroutine(animator.PlayWelcome());
+                    break;
+                case "thank":
+                    StartCoroutine(animator.PlayThank());
+                    break;
             }
         });
     }
@@ -60,6 +69,7 @@ public class MixedRealityView : MonoBehaviour {
     private void PlayAudio(AudioClip result) {
         _audioPlay.clip = result;
         _audioPlay.Play();
+        StartCoroutine(animator.PlayTalking(result.length));
     }
 
     private IEnumerator GetTexture(string url) {
@@ -94,10 +104,18 @@ public class MixedRealityView : MonoBehaviour {
         _client.OnButtonRecord();
     }
 
+    private string[] text = {
+        "Chào bạn", "Cửa hàng có mặt hàng gì", "Cách để xem sản phẩm", "Cho mình xem các loại bàn",
+        "Chiếc bàn thứ nhất có màu khác không", "Kích thước như thế nào", "Cho mình đặt chiếc bàn này", "Cảm ơn"
+    };
+
+    private int i = 0;
+
     private void Update() {
         if (!useKeyDown) return;
-        if (Input.GetKeyDown(keyCode)) {
+        if (Input.GetKeyDown(KeyCode.Alpha5)) {
             OnButtonRecord();
+            // _client.SendText(text[i++]);
         }
     }
 }
