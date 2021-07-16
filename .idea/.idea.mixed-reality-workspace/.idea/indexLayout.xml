@@ -23,8 +23,8 @@
       <Path>.idea</Path>
       <Path>Images</Path>
       <Path>Library</Path>
+      <Path>Logs</Path>
       <Path>QCAR</Path>
-      <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>
