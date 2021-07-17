@@ -14,9 +14,9 @@ public class MixedRealityViewSim : MonoBehaviour {
     private GameObject video;
 
     private int count;
-
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject solarSystem;
+    [SerializeField] private GameObject face;
     
     private void OnEnable() {
         _audioPlay = GetComponent<AudioSource>();
@@ -51,14 +51,16 @@ public class MixedRealityViewSim : MonoBehaviour {
         count++;
         if (count % 2 == 0)
         {
-            image.transform.position = target.transform.position + Vector3.left * 0.5f;
+            image.transform.position = target.transform.position + Vector3.left * 0.8f;
         }
         else
         {
-            image.transform.position = target.transform.position + Vector3.right * 0.5f;
+            image.transform.position = target.transform.position + Vector3.right * 0.8f;
         }
-        
-        image.transform.rotation = Quaternion.identity;
+
+        //image.transform.rotation = Quaternion.Inverse(face.transform.rotation);
+     
+        image.transform.rotation = Quaternion.identity;   
         image.SetActive(false);
         var request = UnityWebRequestTexture.GetTexture(url);
         yield return request.SendWebRequest();

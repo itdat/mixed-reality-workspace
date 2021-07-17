@@ -13,6 +13,8 @@ public class MixedRealityView : MonoBehaviour {
     private GameObject image;
     private GameObject video;
 
+    [SerializeField] private GameObject target;
+
     private void OnEnable() {
         _audioPlay = GetComponent<AudioSource>();
         _client = GetComponent<DialogFlowClient>();
