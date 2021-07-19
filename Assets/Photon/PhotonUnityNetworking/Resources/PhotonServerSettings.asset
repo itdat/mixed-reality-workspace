@@ -39,6 +39,9 @@ MonoBehaviour:
   - HeresWhy
   - ShowImage
   - MoveToPoint
+  - PlayTalking
+  - PlayThank
+  - PlayWelcome
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -1916,6 +1916,15 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 2
     Name: isRun
+  - Type: 4
+    SynchronizeType: 2
+    Name: isWelcome
+  - Type: 4
+    SynchronizeType: 2
+    Name: isTalking
+  - Type: 4
+    SynchronizeType: 2
+    Name: isThankful
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0

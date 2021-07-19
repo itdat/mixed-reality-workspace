@@ -1,4 +1,5 @@
 using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 
 namespace AcquireChan.Scripts {
@@ -22,19 +23,35 @@ namespace AcquireChan.Scripts {
             animator.SetBool("isRun", isRun);
         }
 
-        public IEnumerator PlayTalking(float time) {
+        [PunRPC]
+        public void PlayTalking(float time) {
+            StartCoroutine(PlayTalkingInternal(time));
+        }
+
+        [PunRPC]
+        public void PlayWelcome() {
+            StartCoroutine(PlayWelcomeInternal());
+        }
+
+        [PunRPC]
+        public void PlayThank() {
+            StartCoroutine(PlayThankInternal());
+        }
+
+        private IEnumerator PlayTalkingInternal(float time) {
             animator.SetBool("isTalking", true);
             yield return new WaitForSeconds(time - 1);
             animator.SetBool("isTalking", false);
         }
 
-        public IEnumerator PlayWelcome() {
+        private IEnumerator PlayWelcomeInternal() {
             animator.SetBool("isWelcome", true);
             yield return new WaitForSeconds(1);
             animator.SetBool("isWelcome", false);
         }
 
-        public IEnumerator PlayThank() {
+
+        private IEnumerator PlayThankInternal() {
             animator.SetBool("isThankful", true);
             yield return new WaitForSeconds(1);
             animator.SetBool("isThankful", false);

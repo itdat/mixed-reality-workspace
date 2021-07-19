@@ -7,7 +7,6 @@ namespace Photon {
     public class NetworkManager : MonoBehaviourPunCallbacks {
         public string gameVersion = "1";
         public bool isAdmin;
-        public GameObject buttonTakePhoto;
 
         private void Awake() {
             PhotonNetwork.AutomaticallySyncScene = true;
@@ -53,17 +52,15 @@ namespace Photon {
         // ReSharper disable Unity.PerformanceAnalysis
         public override void OnJoinedRoom() {
             Debug.Log("OnJoinedRoom: " + PhotonNetwork.CurrentRoom);
-            if (!isAdmin) {
+            if (isAdmin) {
+                Instantiate(Resources.Load<GameObject>("Audio\\Speaker"));
+                Instantiate(Resources.Load<GameObject>("Instruction"));
+            }
+            else {
                 model = PhotonNetwork.Instantiate("AcquireChan", gameObject.transform.position,
                     Quaternion.identity);
                 model.GetComponent<AgentController>().enabled = true;
                 model.GetComponent<MoveFollowCamera>().enabled = true;
-                buttonTakePhoto.SetActive(true);
-            }
-            else {
-                var go = Resources.Load<GameObject>("Audio\\Speaker");
-                Instantiate(go);
-                buttonTakePhoto.SetActive(true);
             }
         }
 

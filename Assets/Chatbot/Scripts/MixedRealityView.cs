@@ -43,10 +43,10 @@ public class MixedRealityView : MonoBehaviour {
                     ShowTables();
                     break;
                 case "input.welcome":
-                    StartCoroutine(animator.PlayWelcome());
+                    animator.PlayWelcome();
                     break;
                 case "thank":
-                    StartCoroutine(animator.PlayThank());
+                    animator.PlayThank();
                     break;
             }
         });
@@ -69,7 +69,7 @@ public class MixedRealityView : MonoBehaviour {
     private void PlayAudio(AudioClip result) {
         _audioPlay.clip = result;
         _audioPlay.Play();
-        StartCoroutine(animator.PlayTalking(result.length));
+        animator.PlayTalking(result.length);
     }
 
     private IEnumerator GetTexture(string url) {
