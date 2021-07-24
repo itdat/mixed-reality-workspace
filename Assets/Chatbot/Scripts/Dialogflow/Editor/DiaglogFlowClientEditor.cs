@@ -1,4 +1,5 @@
 using System;
+using Dialogflow.Handler;
 using UnityEditor;
 using UnityEngine;
 
@@ -20,7 +21,6 @@ namespace Dialogflow.Editor {
             client.microphoneName =
                 microphoneNames[EditorGUILayout.Popup("Microphone", microphoneIndex, microphoneNames)];
 
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("settings"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("onAudioResponse"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("onTextResponse"));
 

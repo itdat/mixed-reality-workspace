@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Furniture - Photon.unity
     guid: 576d6c12338a0004c8726b9f70ae6048
   - enabled: 0
-    path: Assets/Scenes/New Scene.unity
-    guid: cd918e98dde6e5a45aa971854593d72d
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Furniture - Chatbot.unity
+    guid: 77c51bea6d2f3be41a3d190a845d687e
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 40ed33765342101419797414171f6ee4,
       type: 2}

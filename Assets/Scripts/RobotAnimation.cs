@@ -1,15 +1,14 @@
-﻿using System;
-using Dialogflow;
+﻿using Dialogflow.Handler;
 using UnityEngine;
 
 public class RobotAnimation : MonoBehaviour {
     private Animator[] _animators;
-    private ClientView _clientView;
+    private MixedRealityView _clientView;
     private bool _sayingState;
     private DialogFlowClient _client;
 
     private void OnEnable() {
-        _clientView = FindObjectOfType<ClientView>();
+        _clientView = FindObjectOfType<MixedRealityView>();
         _animators = gameObject.GetComponentsInChildren<Animator>();
         _client = FindObjectOfType<DialogFlowClient>();
     }
@@ -25,7 +24,7 @@ public class RobotAnimation : MonoBehaviour {
     }
 
     private void Update() {
-        var isSaying = _clientView.AudioPlay.isPlaying;
+        var isSaying = _clientView.audioPlay.isPlaying;
         if (isSaying == _sayingState) return;
         SetAnimate("isSaying", isSaying);
         _sayingState = isSaying;

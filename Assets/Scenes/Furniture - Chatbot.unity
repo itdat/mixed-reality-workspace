@@ -253,9 +253,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 943754221}
-  - component: {fileID: 943754220}
   - component: {fileID: 943754219}
   - component: {fileID: 943754218}
+  - component: {fileID: 943754222}
+  - component: {fileID: 943754220}
   m_Layer: 0
   m_Name: DialogFlowClient
   m_TagString: Untagged
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f32a15e11a64b64bafec45e2d408708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioPlay: {fileID: 943754218}
   keyCode: 9
   animator: {fileID: 4013073854044021975}
   useKeyDown: 1
@@ -383,17 +385,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 943754217}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02f3d2a5b6347d8ad10c70ab0db3d56, type: 3}
+  m_Script: {fileID: 11500000, guid: 2323fd769843490a91da8d4decc03190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  microphoneName: Microphone (Realtek Audio)
-  settings: {fileID: 11400000, guid: 40a22d0ef08a09842a8c5fd537e18059, type: 2}
   onAudioResponse:
     m_PersistentCalls:
       m_Calls: []
   onTextResponse:
     m_PersistentCalls:
       m_Calls: []
+  microphoneName: Microphone (Realtek Audio)
 --- !u!4 &943754221
 Transform:
   m_ObjectHideFlags: 0
@@ -408,6 +409,19 @@ Transform:
   m_Father: {fileID: 4013073854044021978}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &943754222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943754217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db49b6c245159184bb29102f4245984a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accessSettings: {fileID: 11400000, guid: c34f776b48084a24ea57109002f91d69, type: 2}
 --- !u!1 &1114160193
 GameObject:
   m_ObjectHideFlags: 0

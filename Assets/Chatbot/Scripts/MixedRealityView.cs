@@ -1,7 +1,6 @@
 using System.Collections;
 using AcquireChan.Scripts;
-using Dialogflow;
-using Google.Protobuf.WellKnownTypes;
+using Dialogflow.Handler;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Serialization;
@@ -11,8 +10,8 @@ public class MixedRealityView : MonoBehaviour {
     private const string imageResponsePrefab = "ChatBot\\ImageResponsePlate";
     private const string videoResponsePrefab = "ChatBot\\VideoResponse";
     private const string audioErr = "ChatBot\\networkerr";
-    private AudioSource _audioPlay;
-    private DialogFlowClient _client;
+    public AudioSource audioPlay;
+    private DialogFlowClient dialogFlowClient;
     private GameObject image;
     private GameObject video;
     public KeyCode keyCode;
@@ -22,26 +21,23 @@ public class MixedRealityView : MonoBehaviour {
     public bool useKeyDown;
 
     private void OnEnable() {
-        _audioPlay = GetComponent<AudioSource>();
-        _client = GetComponent<DialogFlowClient>();
+        audioPlay = GetComponent<AudioSource>();
+        dialogFlowClient = GetComponent<DialogFlowClient>();
 
-        _client.onAudioResponse.AddListener(PlayAudio);
+        dialogFlowClient.onAudioResponse.AddListener(PlayAudio);
 
-        _client.registerOnParameters("imageUrl", LoadImage);
-        _client.registerOnParameters("videoUrl", value => { PlayVideo(value.StringValue); });
-        _client.onDetectIntentResponse.AddListener(response => {
+        dialogFlowClient.registerOnParameters("imageUrl", LoadImage);
+        dialogFlowClient.registerOnParameters("videoUrl", PlayVideo);
+        dialogFlowClient.onDetectIntentResponse.AddListener(response => {
             if (response == null) {
                 var audioClip = Resources.Load<AudioClip>(audioErr);
-                _audioPlay.clip = audioClip;
-                _audioPlay.Play();
+                audioPlay.clip = audioClip;
+                audioPlay.Play();
 
                 return;
             }
 
-            switch (response.QueryResult.Action) {
-                case "show_table":
-                    ShowTables();
-                    break;
+            switch (response.queryResult.action) {
                 case "input.welcome":
                     animator.PlayWelcome();
                     break;
@@ -50,6 +46,7 @@ public class MixedRealityView : MonoBehaviour {
                     break;
             }
         });
+        dialogFlowClient.registerOnAction("show_table", ShowTables);
     }
 
     private static void ShowTables() {
@@ -60,15 +57,14 @@ public class MixedRealityView : MonoBehaviour {
         Instantiate(go, position, Quaternion.identity);
     }
 
-    private void LoadImage(Value value) {
-        var url = value.StringValue;
+    private void LoadImage(string url) {
         Debug.Log(url);
         StartCoroutine(GetTexture(url));
     }
 
     private void PlayAudio(AudioClip result) {
-        _audioPlay.clip = result;
-        _audioPlay.Play();
+        audioPlay.clip = result;
+        audioPlay.Play();
         animator.PlayTalking(result.length);
     }
 
@@ -100,8 +96,8 @@ public class MixedRealityView : MonoBehaviour {
         if (image != null) Destroy(image);
         if (video != null) Destroy(video);
 
-        _audioPlay.Stop();
-        _client.OnButtonRecord();
+        audioPlay.Stop();
+        dialogFlowClient.OnButtonRecord();
     }
 
     private string[] text = {
@@ -113,9 +109,9 @@ public class MixedRealityView : MonoBehaviour {
 
     private void Update() {
         if (!useKeyDown) return;
-        if (Input.GetKeyDown(KeyCode.Alpha5)) {
+        if (Input.GetKeyDown(keyCode)) {
             OnButtonRecord();
-            // _client.SendText(text[i++]);
+            // dialogFlowClient.SendText(text[i++]);
         }
     }
 }
