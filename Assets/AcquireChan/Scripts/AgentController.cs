@@ -19,6 +19,7 @@ namespace AcquireChan.Scripts {
 
         private float relaxTimer = -1;
 
+        [HideInInspector]
         public bool isMove;
 
         // [HideInInspector]
