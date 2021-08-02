@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Globe" motionHint="adaptive" trackingMode="default"/>
+
+</Tracking>
+
+<Assembly name="Globes_assembly" assemblyId="1eba0f0dd64f440fb32d89fe4adf0740">
+<Part name="Globe" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="Front" translation="0.681604 0.00492634 1.04153" rotation="AD: 0.9999999998462784 -0.0017079948741903364 0.010403856635819865 198.645" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>
