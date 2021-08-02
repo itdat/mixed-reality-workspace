@@ -1,28 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Microsoft.MixedReality.Toolkit.Input;
-using Microsoft.MixedReality.Toolkit.Utilities;
+﻿using Photon.Pun;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
-{
-    [SerializeField] private GameObject[] listPrefabs;
-    private GameObject pointer;
+public class SpawnManager : MonoBehaviour {
+    [SerializeField]
+    private GameObject[] listPrefabs;
 
-    private void OnEnable()
-    {
-        var go = GameObject.Find("GlobalHandListener");
-        if (go == null) return;
-        var listener = go.GetComponent<GlobalHandListener>();
-        if (listener == null) return;
-        pointer = listener.Pointer;
-    }
+    public bool isInRoom;
 
-    public void SpawnStuff(int id)
-    {
+    public void SpawnStuff(int id) {
         if (id < 0 || id > listPrefabs.Length) return;
-        var go = Instantiate(listPrefabs[id], gameObject.transform.position + Vector3.forward * 0.5f, Quaternion.identity);
-        go.tag = "Stuff"; 
+        GameObject go;
+        var position = gameObject.transform.position;
+        position.z += 1;
+        if (isInRoom)
+            go = PhotonNetwork.Instantiate("Objects\\" + listPrefabs[id].name, position,
+                Quaternion.identity);
+        else
+            go = Instantiate(listPrefabs[id], position, Quaternion.identity);
+        go.tag = "Stuff";
     }
 }

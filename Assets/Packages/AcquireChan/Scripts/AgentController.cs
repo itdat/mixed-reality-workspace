@@ -69,10 +69,14 @@ namespace AcquireChan.Scripts {
             var sourceName = eventData.InputSource.SourceName;
             if (!sourceName.Contains("Right")) return;
             var result = eventData.Pointer.Result;
-            m_Agent.SetDestination(result.Details.Point);
-            if (PrefabToSpawn != null) {
-                Instantiate(PrefabToSpawn, result.Details.Point, Quaternion.LookRotation(result.Details.Normal));
-            }
+            MoveToPoint(result.Details.Point);
+        }
+
+      public void MoveToPoint(Vector3 des) {
+            m_Agent.SetDestination(des);
+            // if (PrefabToSpawn != null) {
+            //     Instantiate(PrefabToSpawn, des, Quaternion.identity);
+            // }
         }
 
         public void ComeHere() {

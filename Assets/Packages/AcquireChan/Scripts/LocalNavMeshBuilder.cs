@@ -68,7 +68,6 @@ namespace AcquireChan.Scripts {
 
         private void UpdateNavMesh(bool asyncUpdate = false) {
             var m_Sources = sources.Values.ToList();
-            Debug.Log("Size: " + m_Sources.Count);
             var defaultBuildSettings = NavMesh.GetSettingsByID(0);
             var bounds = QuantizedBounds();
 
@@ -93,7 +92,7 @@ namespace AcquireChan.Scripts {
 
         public void OnObservationAdded(MixedRealitySpatialAwarenessEventData<SpatialAwarenessMeshObject> eventData) {
             var result = MeshFilter2NavMeshBuildSource(eventData.SpatialObject.Filter);
-            var id = eventData.SpatialObject.Id;
+            var id = eventData.Id;
             sources.Add(id, result);
             UpdateNavMesh();
         }
@@ -101,14 +100,14 @@ namespace AcquireChan.Scripts {
         public void OnObservationUpdated(
             MixedRealitySpatialAwarenessEventData<SpatialAwarenessMeshObject> eventData) {
             var result = MeshFilter2NavMeshBuildSource(eventData.SpatialObject.Filter);
-            var id = eventData.SpatialObject.Id;
+            var id = eventData.Id;
             sources.Add(id, result);
             UpdateNavMesh();
         }
 
         public void OnObservationRemoved(
             MixedRealitySpatialAwarenessEventData<SpatialAwarenessMeshObject> eventData) {
-            var id = eventData.SpatialObject.Id;
+            var id = eventData.Id;
             sources.Remove(id);
             UpdateNavMesh();
         }
